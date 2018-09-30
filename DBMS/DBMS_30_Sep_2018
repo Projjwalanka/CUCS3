@@ -1,0 +1,88 @@
+update employee set CITY='UCity' where city='City 1';
+
+commit;
+
+rollback;
+
+update employee set city='U1City', dob='25-Jan-1991' where employee_name='Employee 2';
+
+delete from employee where employee_name='Employee 2';
+
+select * from employee;
+
+select 'Employee Name:'||EMPLOYEE_NAME,dob+5 from employee;
+
+select * from employee where to_char(dob,'yyyy')>'1998';
+
+select * from employee where upper(EMPLOYEE_NAME)='EMPLOYEE 2';
+
+select * from employee where lower(EMPLOYEE_NAME)='employee 2';
+
+delete from employee where employee_name='Employee 1'
+
+delete from employee where employee_name='Employee 2'
+
+delete from employee where employee_name='Employee 3'
+
+select * from employee;
+
+insert into employee values ('Arnab Roy','Bentinct Street','Hoogly','09-OCT-1992');
+
+insert into employee values ('Supratim Chakraborty','Jhorehat Street','Howrah','12-NOV-1996');
+
+insert into employee values ('Kajori Choudhury','Mohiary Road','Kolkata','04-May-1997');
+
+insert into employee values ('Madhurima Vokto','Bankra','Midnapur','04-SEP-1997');
+
+commit;
+
+select * from works;
+
+insert into company values ('ITC','Dhulagori');
+
+insert into company values ('TCS','Saltlake');
+
+insert into company values ('Cognizant','Kolkata');
+
+insert into company values ('Ram Mill','East Midnapure');
+
+commit;
+
+insert into works values ('Arnab Roy','ITC',12500);
+
+insert into works values ('Supratim Chakraborty','TCS',25000);
+
+insert into works values ('Kajori Choudhury','Cognizant',23500);
+
+commit;
+
+insert into manages values ('Arnab Roy','Suman Dey');
+
+insert into manages values ('Supratim Chakraborty','Projjwalanka Pramanik');
+
+insert into manages values ('Kajori Choudhury','Rupak Sen');
+
+insert into manages values ('Madhurima Vokto','Akash Malick');
+
+commit;
+
+select *from employee;
+
+select *from works;
+
+select *from company;
+
+select *from manages;
+
+select a.employee_name,b.manager_name,c.company_name from employee a, manages b, works c
+where a.EMPLOYEE_NAME=b.EMPLOYEE_NAME
+and a.employee_name=c.employee_name;
+
+select a.employee_name,b.company_name from employee a inner join works b
+on a.EMPLOYEE_NAME=b.EMPLOYEE_NAME;
+
+insert into employee values ('Saikat Das','Lake Town','Kolkata','09-OCT-1995');
+
+select a.employee_name,b.manager_name,c.company_name from employee a, manages b, works c
+where a.EMPLOYEE_NAME=b.EMPLOYEE_NAME(+)
+and a.employee_name=c.employee_name(+);
