@@ -1,24 +1,41 @@
-//Function template
 #include<iostream>
 
 using namespace std;
 
 template<class T>
-void swap1(T a, T b){
-	T c;
-	c=a;
-	a=b;
-	b=c;
-	cout<<"After swap a="<<a<<"\tb="<<b<<endl;
+void bubble(T arr[20],int n)
+{
+    T temp;
+    for( int i=0; i<n; i++)
+        {
+        for( int j=0; j<n-1-i; j++)
+            {
+                if (arr[j]>arr[j+1])
+                {
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
 }
 
-int main(){
-	int a=10,b=20;
-	swap1(a,b);
-	float c= 10.5,d=20.5;
-	swap1(c,d);
-	char f='P',g='Q';
-	swap1(f,g);
+int main()
+{
+    int n,arr[20];
+    cout<<"Enter the range:- "<<endl;
+    cin>>n;
+    for( int i=0; i<n; i++)
+    {
+        cout<<"Enter the elements:- "<<endl;
+        cin>>arr[i];
+    }
+    bubble(arr,n);
+    cout<<"The sorted array is:-"<<endl;
+    for( int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<"\t";
+    }
 
-	return 0;
+    return 0;
 }
